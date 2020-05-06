@@ -1,9 +1,8 @@
-def func(x):
-    return x + 1
+from GithubUnitTesting.app import app
+import requests
+
+app.run(debug=True,host="0.0.0.0")
 
 def test_example():
-    """
-    But really, test cases should be callables containing assertions:
-    """
-    print("\nRunning test_example...")
-    assert func(2) == 3
+    x = requests.get('http://localhost:5000/shutdown')
+    assert x == "Server shutting down..."
