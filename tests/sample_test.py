@@ -1,4 +1,4 @@
-from GithubUnitTesting.app import app
+from app import app
 import requests
 
 app.run(debug=True,host="0.0.0.0")
