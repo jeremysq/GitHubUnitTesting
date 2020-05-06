@@ -1,10 +1,16 @@
-from flask import Flask
+from flask import Flask, request
 app = Flask(__name__)
 
 
-@app.route('/')
-def hello():
-    return "Hello, World!"
+@app.route('/',methods=['GET','POST'])
+def index():
+    if request.method == 'GET':
+        return "Hello, World!"
+    key = request.json['key']
+    if (key == 'DockerTest'):
+        return "Hello, World! This docker is working!"
+    else:
+        return "This isn't right!"
 
 @app.route('/<name>')
 def hello_name(name):
